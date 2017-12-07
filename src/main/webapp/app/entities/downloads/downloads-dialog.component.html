@@ -1,0 +1,73 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDownloadsLabel" jhiTranslate="refplattformOneApp.downloads.home.createOrEditLabel">Create or edit a Downloads</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!downloads.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="downloads.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.downloads.titel" for="field_titel">Titel</label>
+            <input type="text" class="form-control" name="titel" id="field_titel"
+                [(ngModel)]="downloads.titel" required/>
+            <div [hidden]="!(editForm.controls.titel?.dirty && editForm.controls.titel?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.titel?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.downloads.bereich" for="field_bereich">Bereich</label>
+            <input type="text" class="form-control" name="bereich" id="field_bereich"
+                [(ngModel)]="downloads.bereich" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.downloads.anlageURL" for="field_anlageURL">Anlage URL</label>
+            <input type="text" class="form-control" name="anlageURL" id="field_anlageURL"
+                [(ngModel)]="downloads.anlageURL" required/>
+            <div [hidden]="!(editForm.controls.anlageURL?.dirty && editForm.controls.anlageURL?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.anlageURL?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.downloads.customerReferences" for="field_customerReferences">Customer References</label>
+            <select class="form-control" id="field_customerReferences" name="customerReferences" [(ngModel)]="downloads.customerReferencesId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="customerReferencesOption.id" *ngFor="let customerReferencesOption of customerreferences; trackBy: trackCustomerReferencesById">{{customerReferencesOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.downloads.doctype" for="field_doctype">Doctype</label>
+            <select class="form-control" id="field_doctype" name="doctype" [(ngModel)]="downloads.doctypeId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="documentTypesOption.id" *ngFor="let documentTypesOption of documenttypes; trackBy: trackDocumentTypesById">{{documentTypesOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.downloads.language" for="field_language">Language</label>
+            <select class="form-control" id="field_language" name="language" [(ngModel)]="downloads.languageId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="languagesOption.id" *ngFor="let languagesOption of languages; trackBy: trackLanguagesById">{{languagesOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

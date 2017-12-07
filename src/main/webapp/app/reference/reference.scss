@@ -1,0 +1,16 @@
+li {
+    padding-bottom: 0.5em;
+    list-style: none;
+}
+
+.dropdown-toggle {
+    width: 100%;
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+.show-on-hover:hover > ul.dropdown-menu {
+    display: block;
+}

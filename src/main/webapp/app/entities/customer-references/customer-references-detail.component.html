@@ -1,0 +1,99 @@
+
+<div *ngIf="customerReferences">
+    <h2><span jhiTranslate="refplattformOneApp.customerReferences.detail.title">Customer References</span> {{customerReferences.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.titel">Titel</span></dt>
+        <dd>
+            <span>{{customerReferences.titel}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.projectTimeSpan">Project Time Span</span></dt>
+        <dd>
+            <span>{{customerReferences.projectTimeSpan}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.projectVolume">Project Volume</span></dt>
+        <dd>
+            <span>{{customerReferences.projectVolume}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.projectTeam">Project Team</span></dt>
+        <dd>
+            <span>{{customerReferences.projectTeam}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.exxetaConsultingAmount">Exxeta Consulting Amount</span></dt>
+        <dd>
+            <span>{{customerReferences.exxetaConsultingAmount}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.referenceOwner">Reference Owner</span></dt>
+        <dd>
+            <span>{{customerReferences.referenceOwner}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.exxetaProject">Exxeta Project</span></dt>
+        <dd>
+            <span>{{customerReferences.exxetaProject}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.finished">Finished</span></dt>
+        <dd>
+            <span>{{customerReferences.finished}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.schlagworte">Schlagworte</span></dt>
+        <dd>
+            <span>{{customerReferences.schlagworte}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.contact">Contact</span></dt>
+        <dd>
+            <span>{{customerReferences.contact}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.kritischeErfolgsfaktoren">Kritische Erfolgsfaktoren</span></dt>
+        <dd>
+            <span>{{customerReferences.kritischeErfolgsfaktoren}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.anmerkungen">Anmerkungen</span></dt>
+        <dd>
+            <span>{{customerReferences.anmerkungen}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.consultingdivision">Consultingdivision</span></dt>
+        <dd>
+            <div *ngIf="customerReferences.consultingdivisionId">
+                <a [routerLink]="['/consulting-division', customerReferences.consultingdivisionId]">{{customerReferences.consultingdivisionId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.customer">Customer</span></dt>
+        <dd>
+            <div *ngIf="customerReferences.customerId">
+                <a [routerLink]="['/customers', customerReferences.customerId]">{{customerReferences.customerId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.industry">Industry</span></dt>
+        <dd>
+            <div *ngIf="customerReferences.industryId">
+                <a [routerLink]="['/industries', customerReferences.industryId]">{{customerReferences.industryId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.projectrole">Projectrole</span></dt>
+        <dd>
+            <span *ngFor="let projectrole of customerReferences.projectroles; let last = last">
+                <a [routerLink]="['/project-roles', projectrole?.id ]">{{projectrole.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.customerReferences.servicecomponent">Servicecomponent</span></dt>
+        <dd>
+            <span *ngFor="let servicecomponent of customerReferences.servicecomponents; let last = last">
+                <a [routerLink]="['/service-components', servicecomponent?.id ]">{{servicecomponent.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="button"
+            [routerLink]="['/', { outlets: { popup: 'customer-references/'+ customerReferences.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

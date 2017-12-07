@@ -1,0 +1,51 @@
+
+<div *ngIf="downloads">
+    <h2><span jhiTranslate="refplattformOneApp.downloads.detail.title">Downloads</span> {{downloads.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="refplattformOneApp.downloads.titel">Titel</span></dt>
+        <dd>
+            <span>{{downloads.titel}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.downloads.bereich">Bereich</span></dt>
+        <dd>
+            <span>{{downloads.bereich}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.downloads.anlageURL">Anlage URL</span></dt>
+        <dd>
+            <span>{{downloads.anlageURL}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.downloads.customerReferences">Customer References</span></dt>
+        <dd>
+            <div *ngIf="downloads.customerReferencesId">
+                <a [routerLink]="['/customer-references', downloads.customerReferencesId]">{{downloads.customerReferencesId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.downloads.doctype">Doctype</span></dt>
+        <dd>
+            <div *ngIf="downloads.doctypeId">
+                <a [routerLink]="['/document-types', downloads.doctypeId]">{{downloads.doctypeId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.downloads.language">Language</span></dt>
+        <dd>
+            <div *ngIf="downloads.languageId">
+                <a [routerLink]="['/languages', downloads.languageId]">{{downloads.languageId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'downloads/'+ downloads.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

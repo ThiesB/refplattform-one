@@ -1,0 +1,21 @@
+{
+    "refplattformOneApp": {
+        "languages" : {
+            "home": {
+                "title": "Languages",
+                "createLabel": "Languages erstellen",
+                "createOrEditLabel": "Languages erstellen oder bearbeiten"
+            },
+            "created": "Languages erstellt mit ID {{ param }}",
+            "updated": "Languages aktualisiert mit ID {{ param }}",
+            "deleted": "Languages gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Languages {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Languages"
+            },
+            "languageName": "Language Name"
+        }
+    }
+}

@@ -5,10 +5,22 @@
         "menu": {
             "home": "Startseite",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+            "referenzen": "Referenzen",
             "entities": {
                 "main": "Entitäten",
+                "customerReferences": "Customer References",
+                "consultingDivision": "Consulting Division",
+                "customers": "Customers",
+                "industries": "Industries",
+                "projectRoles": "Project Roles",
+                "serviceComponents": "Service Components",
+                "downloads": "Downloads",
+                "documentTypes": "Document Types",
+                "languages": "Languages",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
+
+
             "account": {
                 "main": "Zugang",
                 "settings": "Einstellungen",

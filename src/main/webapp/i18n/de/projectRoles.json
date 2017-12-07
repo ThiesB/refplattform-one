@@ -1,0 +1,21 @@
+{
+    "refplattformOneApp": {
+        "projectRoles" : {
+            "home": {
+                "title": "Project Roles",
+                "createLabel": "Project Roles erstellen",
+                "createOrEditLabel": "Project Roles erstellen oder bearbeiten"
+            },
+            "created": "Project Roles erstellt mit ID {{ param }}",
+            "updated": "Project Roles aktualisiert mit ID {{ param }}",
+            "deleted": "Project Roles gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Project Roles {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Project Roles"
+            },
+            "roleName": "Role Name"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "refplattformOneApp": {
+        "downloads" : {
+            "home": {
+                "title": "Downloads",
+                "createLabel": "Create a new Downloads",
+                "createOrEditLabel": "Create or edit a Downloads"
+            },
+            "created": "A new Downloads is created with identifier {{ param }}",
+            "updated": "A Downloads is updated with identifier {{ param }}",
+            "deleted": "A Downloads is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Downloads {{ id }}?"
+            },
+            "detail": {
+                "title": "Downloads"
+            },
+            "titel": "Titel",
+            "bereich": "Bereich",
+            "anlageURL": "Anlage URL",
+            "customerReferences": "Customer References",
+            "doctype": "Doctype",
+            "language": "Language"
+        }
+    }
+}

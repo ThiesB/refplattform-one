@@ -1,0 +1,21 @@
+{
+    "refplattformOneApp": {
+        "consultingDivision" : {
+            "home": {
+                "title": "Consulting Divisions",
+                "createLabel": "Consulting Division erstellen",
+                "createOrEditLabel": "Consulting Division erstellen oder bearbeiten"
+            },
+            "created": "Consulting Division erstellt mit ID {{ param }}",
+            "updated": "Consulting Division aktualisiert mit ID {{ param }}",
+            "deleted": "Consulting Division gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Consulting Division {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Consulting Division"
+            },
+            "divisionName": "Division Name"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "refplattformOneApp": {
+        "downloads" : {
+            "home": {
+                "title": "Downloads",
+                "createLabel": "Downloads erstellen",
+                "createOrEditLabel": "Downloads erstellen oder bearbeiten"
+            },
+            "created": "Downloads erstellt mit ID {{ param }}",
+            "updated": "Downloads aktualisiert mit ID {{ param }}",
+            "deleted": "Downloads gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Downloads {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Downloads"
+            },
+            "titel": "Titel",
+            "bereich": "Bereich",
+            "anlageURL": "Anlage URL",
+            "customerReferences": "Customer References",
+            "doctype": "Doctype",
+            "language": "Language"
+        }
+    }
+}

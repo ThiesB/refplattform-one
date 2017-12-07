@@ -1,0 +1,22 @@
+{
+    "refplattformOneApp": {
+        "documentTypes" : {
+            "home": {
+                "title": "Document Types",
+                "createLabel": "Create a new Document Types",
+                "createOrEditLabel": "Create or edit a Document Types"
+            },
+            "created": "A new Document Types is created with identifier {{ param }}",
+            "updated": "A Document Types is updated with identifier {{ param }}",
+            "deleted": "A Document Types is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Document Types {{ id }}?"
+            },
+            "detail": {
+                "title": "Document Types"
+            },
+            "titel": "Titel",
+            "type": "Type"
+        }
+    }
+}

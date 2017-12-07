@@ -1,0 +1,170 @@
+<div class="row">
+    <div class="col-md-4">
+        <ul>
+            <li>
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <input type="text" class="form-control input-lg" placeholder="Freitextsuche" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-info btn-lg" type="button">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div id="ref-search-input">
+                    <div class="input-group col-md-12">
+                        <input type="text" class="form-control input-lg" placeholder="Referenz-Nr." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-info btn-lg" type="button">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                    <div class="dropdown show-on-hover">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                           Beratungsfeld
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-item" href="#"><input type="checkbox"> Fach Beratung</li>
+                            <li class="dropdown-item" href="#"><input type="checkbox"> IT Beratung</li>
+                        </ul>
+                    </div>
+            </li>
+
+            <li>
+                    <div class="dropdown show-on-hover">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Service-Komponenten
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-item" href="#"><input type="checkbox"> Application Support</li>
+                            <li class="dropdown-item" href="#"><input type="checkbox"> Asset Management</li>
+                        </ul>
+                    </div>
+            </li>
+
+            <li>
+                    <div class="dropdown show-on-hover">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Branche
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-item"><input type="checkbox"> Automotive</li>
+                            <li class="dropdown-item"><input type="checkbox"> Energy</li>
+                        </ul>
+                    </div>
+            </li>
+
+            <li>
+                    <div class="dropdown show-on-hover">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Kunde
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-item"><input type="checkbox"> ADAC</li>
+                            <li class="dropdown-item"><input type="checkbox"> Bader</li>
+                        </ul>
+                    </div>
+            </li>
+
+            <li>
+                    <div class="dropdown show-on-hover">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Projektrollen
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-item"><input type="checkbox"> Administrator</li>
+                            <li class="dropdown-item"><input type="checkbox"> Architektur</li>
+                        </ul>
+                    </div>
+            </li>
+
+            <li>
+                    <div class="dropdown show-on-hover">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Projektgröße
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-item"><input type="checkbox"> 0 bis 250.000</li>
+                            <li class="dropdown-item"><input type="checkbox"> 250.000 bis 500.000</li>
+                        </ul>
+                    </div>
+            </li>
+
+            <li>
+                    <div class="dropdown show-on-hover">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Referenz-Art <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a class="dropdown-item"><input type="checkbox"> One Pager</a></li>
+                            <li><a class="dropdown-item"><input type="checkbox"> Success Story</a></li>
+                        </ul>
+                    </div>
+            </li>
+
+            <li>
+                    <div class="dropdown show-on-hover">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Sprache <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a class="dropdown-item"><input type="checkbox"> German</a></li>
+                            <li><a class="dropdown-item"><input type="checkbox"> English</a></li>
+                        </ul>
+                    </div>
+            </li>
+
+            <li>
+                <button type="button" class="btn btn-primary">Filter zurücksetzen</button>
+            </li>
+
+        </ul>
+
+    </div>
+    <div class="col-md-8">
+        <!-- Referenzen werden eingefügt -->
+        <div>
+            <h2>
+                <span jhiTranslate="refplattformOneApp.customerReferences.home.title">Referenzen</span>
+            </h2>
+            <jhi-alert></jhi-alert>
+            <div class="row">
+            </div>
+            <br/>
+            <div class="table-responsive" *ngIf="customerReferences">
+                <table class="table table-striped">
+                    <thead>
+                    <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+                        <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+                        <th><span jhiTranslate="refplattformOneApp.customerReferences.titel">Titel</span></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                    <tr *ngFor="let customerReferences of customerReferences ;trackBy: trackId">
+                        <td><a [routerLink]="['../customer-references', customerReferences.id ]">{{customerReferences.id}}</a></td>
+                        <td>{{customerReferences.titel}}</td>
+                        <td class="text-right">
+                            <div class="btn-group flex-btn-group-container">
+                                <button type="submit"
+                                        [routerLink]="['../customer-references', customerReferences.id ]"
+                                        class="btn btn-info btn-sm">
+                                    <span class="fa fa-eye"></span>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

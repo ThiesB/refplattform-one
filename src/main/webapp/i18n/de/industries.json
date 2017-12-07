@@ -1,0 +1,21 @@
+{
+    "refplattformOneApp": {
+        "industries" : {
+            "home": {
+                "title": "Industries",
+                "createLabel": "Industries erstellen",
+                "createOrEditLabel": "Industries erstellen oder bearbeiten"
+            },
+            "created": "Industries erstellt mit ID {{ param }}",
+            "updated": "Industries aktualisiert mit ID {{ param }}",
+            "deleted": "Industries gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Industries {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Industries"
+            },
+            "industryName": "Industry Name"
+        }
+    }
+}

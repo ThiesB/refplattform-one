@@ -1,0 +1,131 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCustomerReferencesLabel" jhiTranslate="refplattformOneApp.customerReferences.home.createOrEditLabel">Create or edit a Customer References</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!customerReferences.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="customerReferences.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.titel" for="field_titel">Titel</label>
+            <input type="text" class="form-control" name="titel" id="field_titel"
+                [(ngModel)]="customerReferences.titel" required/>
+            <div [hidden]="!(editForm.controls.titel?.dirty && editForm.controls.titel?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.titel?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.projectTimeSpan" for="field_projectTimeSpan">Project Time Span</label>
+            <input type="number" class="form-control" name="projectTimeSpan" id="field_projectTimeSpan"
+                [(ngModel)]="customerReferences.projectTimeSpan" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.projectVolume" for="field_projectVolume">Project Volume</label>
+            <input type="number" class="form-control" name="projectVolume" id="field_projectVolume"
+                [(ngModel)]="customerReferences.projectVolume" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.projectTeam" for="field_projectTeam">Project Team</label>
+            <input type="text" class="form-control" name="projectTeam" id="field_projectTeam"
+                [(ngModel)]="customerReferences.projectTeam" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.exxetaConsultingAmount" for="field_exxetaConsultingAmount">Exxeta Consulting Amount</label>
+            <input type="number" class="form-control" name="exxetaConsultingAmount" id="field_exxetaConsultingAmount"
+                [(ngModel)]="customerReferences.exxetaConsultingAmount" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.referenceOwner" for="field_referenceOwner">Reference Owner</label>
+            <input type="text" class="form-control" name="referenceOwner" id="field_referenceOwner"
+                [(ngModel)]="customerReferences.referenceOwner" required/>
+            <div [hidden]="!(editForm.controls.referenceOwner?.dirty && editForm.controls.referenceOwner?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.referenceOwner?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.exxetaProject" for="field_exxetaProject">Exxeta Project</label>
+            <input type="checkbox" class="form-control" name="exxetaProject" id="field_exxetaProject"
+                [(ngModel)]="customerReferences.exxetaProject" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.finished" for="field_finished">Finished</label>
+            <input type="checkbox" class="form-control" name="finished" id="field_finished"
+                [(ngModel)]="customerReferences.finished" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.schlagworte" for="field_schlagworte">Schlagworte</label>
+            <input type="text" class="form-control" name="schlagworte" id="field_schlagworte"
+                [(ngModel)]="customerReferences.schlagworte" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.contact" for="field_contact">Contact</label>
+            <input type="text" class="form-control" name="contact" id="field_contact"
+                [(ngModel)]="customerReferences.contact" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.kritischeErfolgsfaktoren" for="field_kritischeErfolgsfaktoren">Kritische Erfolgsfaktoren</label>
+            <input type="text" class="form-control" name="kritischeErfolgsfaktoren" id="field_kritischeErfolgsfaktoren"
+                [(ngModel)]="customerReferences.kritischeErfolgsfaktoren" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.anmerkungen" for="field_anmerkungen">Anmerkungen</label>
+            <input type="text" class="form-control" name="anmerkungen" id="field_anmerkungen"
+                [(ngModel)]="customerReferences.anmerkungen" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.consultingdivision" for="field_consultingdivision">Consultingdivision</label>
+            <select class="form-control" id="field_consultingdivision" name="consultingdivision" [(ngModel)]="customerReferences.consultingdivisionId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="consultingDivisionOption.id" *ngFor="let consultingDivisionOption of consultingdivisions; trackBy: trackConsultingDivisionById">{{consultingDivisionOption.divisionName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.customer" for="field_customer">Customer</label>
+            <select class="form-control" id="field_customer" name="customer" [(ngModel)]="customerReferences.customerId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="customersOption.id" *ngFor="let customersOption of customers; trackBy: trackCustomersById">{{customersOption.customerName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="refplattformOneApp.customerReferences.industry" for="field_industry">Industry</label>
+            <select class="form-control" id="field_industry" name="industry" [(ngModel)]="customerReferences.industryId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="industriesOption.id" *ngFor="let industriesOption of industries; trackBy: trackIndustriesById">{{industriesOption.industryName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="refplattformOneApp.customerReferences.projectrole" for="field_projectrole">Projectrole</label>
+            <select class="form-control" id="field_projectrole" multiple name="projectrole" [(ngModel)]="customerReferences.projectroles">
+                <option [ngValue]="getSelected(customerReferences.projectroles, projectRolesOption)" *ngFor="let projectRolesOption of projectroles; trackBy: trackProjectRolesById">{{projectRolesOption.roleName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="refplattformOneApp.customerReferences.servicecomponent" for="field_servicecomponent">Servicecomponent</label>
+            <select class="form-control" id="field_servicecomponent" multiple name="servicecomponent" [(ngModel)]="customerReferences.servicecomponents">
+                <!-- Hier nach Namen suchen da dieser und nicht die ID ausgegeben werden soll -->
+                <option [ngValue]="getSelected(customerReferences.servicecomponents, serviceComponentsOption)" *ngFor="let serviceComponentsOption of servicecomponents; trackBy: trackServiceComponentsById">{{serviceComponentsOption.serviceName}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

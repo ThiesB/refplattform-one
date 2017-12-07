@@ -44,6 +44,18 @@ public class CacheConfiguration {
             cm.createCache(jhipster.org.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(jhipster.org.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(jhipster.org.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(jhipster.org.domain.CustomerReferences.class.getName(), jcacheConfiguration);
+            cm.createCache(jhipster.org.domain.CustomerReferences.class.getName() + ".downloads", jcacheConfiguration);
+            cm.createCache(jhipster.org.domain.CustomerReferences.class.getName() + ".projectroles", jcacheConfiguration);
+            cm.createCache(jhipster.org.domain.CustomerReferences.class.getName() + ".servicecomponents", jcacheConfiguration);
+            cm.createCache(jhipster.org.domain.ConsultingDivision.class.getName(), jcacheConfiguration);
+            cm.createCache(jhipster.org.domain.Customers.class.getName(), jcacheConfiguration);
+            cm.createCache(jhipster.org.domain.Industries.class.getName(), jcacheConfiguration);
+            cm.createCache(jhipster.org.domain.ProjectRoles.class.getName(), jcacheConfiguration);
+            cm.createCache(jhipster.org.domain.ServiceComponents.class.getName(), jcacheConfiguration);
+            cm.createCache(jhipster.org.domain.Downloads.class.getName(), jcacheConfiguration);
+            cm.createCache(jhipster.org.domain.DocumentTypes.class.getName(), jcacheConfiguration);
+            cm.createCache(jhipster.org.domain.Languages.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

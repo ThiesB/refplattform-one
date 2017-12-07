@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity CustomerReferences.
+    -->
+    <changeSet id="20171130133208-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="consultingdivision_id"
+                                 baseTableName="customer_references"
+                                 constraintName="fk_customer_references_consultingdivision_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="consulting_division"/>
+
+        <addForeignKeyConstraint baseColumnNames="customer_id"
+                                 baseTableName="customer_references"
+                                 constraintName="fk_customer_references_customer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="customers"/>
+
+        <addForeignKeyConstraint baseColumnNames="industry_id"
+                                 baseTableName="customer_references"
+                                 constraintName="fk_customer_references_industry_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="industries"/>
+
+        <addForeignKeyConstraint baseColumnNames="customer_references_id"
+                                 baseTableName="customer_references_projectrole"
+                                 constraintName="fk_customer_references_projectrole_customer_references_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="customer_references"/>
+        <addForeignKeyConstraint baseColumnNames="projectroles_id"
+                                 baseTableName="customer_references_projectrole"
+                                 constraintName="fk_customer_references_projectrole_projectroles_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project_roles"/>
+        
+        <addForeignKeyConstraint baseColumnNames="customer_references_id"
+                                 baseTableName="customer_references_servicecomponent"
+                                 constraintName="fk_customer_references_servicecomponent_customer_references_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="customer_references"/>
+        <addForeignKeyConstraint baseColumnNames="servicecomponents_id"
+                                 baseTableName="customer_references_servicecomponent"
+                                 constraintName="fk_customer_references_servicecomponent_servicecomponents_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_components"/>
+        
+    </changeSet>
+</databaseChangeLog>

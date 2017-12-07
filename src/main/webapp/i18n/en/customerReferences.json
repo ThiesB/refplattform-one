@@ -1,0 +1,38 @@
+{
+    "refplattformOneApp": {
+        "customerReferences" : {
+            "home": {
+                "title": "Customer References",
+                "createLabel": "Create a new Customer References",
+                "createOrEditLabel": "Create or edit a Customer References"
+            },
+            "created": "A new Customer References is created with identifier {{ param }}",
+            "updated": "A Customer References is updated with identifier {{ param }}",
+            "deleted": "A Customer References is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Customer References {{ id }}?"
+            },
+            "detail": {
+                "title": "Customer References"
+            },
+            "titel": "Titel",
+            "projectTimeSpan": "Project Time Span",
+            "projectVolume": "Project Volume",
+            "projectTeam": "Project Team",
+            "exxetaConsultingAmount": "Exxeta Consulting Amount",
+            "referenceOwner": "Reference Owner",
+            "exxetaProject": "Exxeta Project",
+            "finished": "Finished",
+            "schlagworte": "Schlagworte",
+            "contact": "Contact",
+            "kritischeErfolgsfaktoren": "Kritische Erfolgsfaktoren",
+            "anmerkungen": "Anmerkungen",
+            "download": "Download",
+            "consultingdivision": "Consultingdivision",
+            "customer": "Customer",
+            "industry": "Industry",
+            "projectrole": "Projectrole",
+            "servicecomponent": "Servicecomponent"
+        }
+    }
+}

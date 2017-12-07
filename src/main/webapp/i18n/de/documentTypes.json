@@ -1,0 +1,22 @@
+{
+    "refplattformOneApp": {
+        "documentTypes" : {
+            "home": {
+                "title": "Document Types",
+                "createLabel": "Document Types erstellen",
+                "createOrEditLabel": "Document Types erstellen oder bearbeiten"
+            },
+            "created": "Document Types erstellt mit ID {{ param }}",
+            "updated": "Document Types aktualisiert mit ID {{ param }}",
+            "deleted": "Document Types gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Document Types {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Document Types"
+            },
+            "titel": "Titel",
+            "type": "Type"
+        }
+    }
+}

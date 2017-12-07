@@ -1,0 +1,29 @@
+
+<div *ngIf="documentTypes">
+    <h2><span jhiTranslate="refplattformOneApp.documentTypes.detail.title">Document Types</span> {{documentTypes.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="refplattformOneApp.documentTypes.titel">Titel</span></dt>
+        <dd>
+            <span>{{documentTypes.titel}}</span>
+        </dd>
+        <dt><span jhiTranslate="refplattformOneApp.documentTypes.type">Type</span></dt>
+        <dd>
+            <span>{{documentTypes.type}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'document-types/'+ documentTypes.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

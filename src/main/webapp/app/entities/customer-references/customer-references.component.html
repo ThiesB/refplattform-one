@@ -1,0 +1,99 @@
+<div>
+    <h2>
+        <span jhiTranslate="refplattformOneApp.customerReferences.home.title">Customer References</span>
+        <button class="btn btn-primary float-right jh-create-entity create-customer-references" [routerLink]="['/', { outlets: { popup: ['customer-references-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="refplattformOneApp.customerReferences.home.createLabel">
+            Create new Customer References
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="customerReferences">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="titel"><span jhiTranslate="refplattformOneApp.customerReferences.titel">Titel</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="projectTimeSpan"><span jhiTranslate="refplattformOneApp.customerReferences.projectTimeSpan">Project Time Span</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="projectVolume"><span jhiTranslate="refplattformOneApp.customerReferences.projectVolume">Project Volume</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="projectTeam"><span jhiTranslate="refplattformOneApp.customerReferences.projectTeam">Project Team</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="exxetaConsultingAmount"><span jhiTranslate="refplattformOneApp.customerReferences.exxetaConsultingAmount">Exxeta Consulting Amount</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="referenceOwner"><span jhiTranslate="refplattformOneApp.customerReferences.referenceOwner">Reference Owner</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="exxetaProject"><span jhiTranslate="refplattformOneApp.customerReferences.exxetaProject">Exxeta Project</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="finished"><span jhiTranslate="refplattformOneApp.customerReferences.finished">Finished</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="schlagworte"><span jhiTranslate="refplattformOneApp.customerReferences.schlagworte">Schlagworte</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="contact"><span jhiTranslate="refplattformOneApp.customerReferences.contact">Contact</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="kritischeErfolgsfaktoren"><span jhiTranslate="refplattformOneApp.customerReferences.kritischeErfolgsfaktoren">Kritische Erfolgsfaktoren</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="anmerkungen"><span jhiTranslate="refplattformOneApp.customerReferences.anmerkungen">Anmerkungen</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="consultingdivisionId"><span jhiTranslate="refplattformOneApp.customerReferences.consultingdivision">Consultingdivision</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="customerId"><span jhiTranslate="refplattformOneApp.customerReferences.customer">Customer</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="industryId"><span jhiTranslate="refplattformOneApp.customerReferences.industry">Industry</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let customerReferences of customerReferences ;trackBy: trackId">
+                <td><a [routerLink]="['../customer-references', customerReferences.id ]">{{customerReferences.id}}</a></td>
+                <td>{{customerReferences.titel}}</td>
+                <td>{{customerReferences.projectTimeSpan}}</td>
+                <td>{{customerReferences.projectVolume}}</td>
+                <td>{{customerReferences.projectTeam}}</td>
+                <td>{{customerReferences.exxetaConsultingAmount}}</td>
+                <td>{{customerReferences.referenceOwner}}</td>
+                <td>{{customerReferences.exxetaProject}}</td>
+                <td>{{customerReferences.finished}}</td>
+                <td>{{customerReferences.schlagworte}}</td>
+                <td>{{customerReferences.contact}}</td>
+                <td>{{customerReferences.kritischeErfolgsfaktoren}}</td>
+                <td>{{customerReferences.anmerkungen}}</td>
+                <td>
+                    <div *ngIf="customerReferences.consultingdivisionId">
+                        <a [routerLink]="['../consulting-division', customerReferences.consultingdivisionId  ]" >{{customerReferences.consultingdivisionId}}</a>
+                    </div>
+                </td>
+
+                <!-- Testen mit Customername-->
+                <td>
+                    <div *ngIf="customerReferences.customerId">
+                        <a [routerLink]="['../customers', customerReferences.customerId ]" >{{customerReferences.customerId}}</a>
+                    </div>
+                </td>
+
+                <td>
+                    <div *ngIf="customerReferences.industryId">
+                        <a [routerLink]="['../industries', customerReferences.industryId]" >{{customerReferences.industryId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../customer-references', customerReferences.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'customer-references/'+ customerReferences.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'customer-references/'+ customerReferences.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

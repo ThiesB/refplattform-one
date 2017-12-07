@@ -1,0 +1,22 @@
+{
+    "refplattformOneApp": {
+        "serviceComponents" : {
+            "home": {
+                "title": "Service Components",
+                "createLabel": "Create a new Service Components",
+                "createOrEditLabel": "Create or edit a Service Components"
+            },
+            "created": "A new Service Components is created with identifier {{ param }}",
+            "updated": "A Service Components is updated with identifier {{ param }}",
+            "deleted": "A Service Components is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Service Components {{ id }}?"
+            },
+            "detail": {
+                "title": "Service Components"
+            },
+            "serviceName": "Service Name",
+            "consultingdivision": "Consultingdivision"
+        }
+    }
+}
