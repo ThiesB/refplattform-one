@@ -5,6 +5,7 @@ import com.codahale.metrics.annotation.Timed;
 import jhipster.org.domain.CustomerReferences;
 import jhipster.org.repository.CustomerReferencesRepository;
 import jhipster.org.service.CustomerReferencesService;
+import jhipster.org.specifications.CustomerReferencesSpecification;
 import jhipster.org.web.rest.errors.BadRequestAlertException;
 import jhipster.org.web.rest.util.HeaderUtil;
 import jhipster.org.web.rest.util.PaginationUtil;
@@ -144,5 +145,14 @@ public class CustomerReferencesResource {
         log.debug("REST request to get CustomerReferences : {}", titel);
         CustomerReferences customerReferences = customerReferencesRepository.findByTitelContaining(titel);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(customerReferences));
+    }
+
+    @GetMapping("/customer-reference")  // s fehlt
+    @Timed
+    public ResponseEntity<List<CustomerReferences>> getAllCustomerReference(@RequestParam String search, Pageable pageable ) {
+        log.debug("REST request to get a page of CustomerReferences");
+        Page<CustomerReferences> page = customerReferencesRepository.findAll(CustomerReferencesSpecification.containsTextInName(search), pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/customer-reference");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 }

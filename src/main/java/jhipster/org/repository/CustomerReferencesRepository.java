@@ -3,6 +3,9 @@ package jhipster.org.repository;
 //import antlr.collections.List;
 import jhipster.org.domain.CustomerReferences;
 import jhipster.org.service.dto.CustomerReferencesDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.data.jpa.repository.*;
@@ -25,6 +28,10 @@ public interface CustomerReferencesRepository extends JpaRepository<CustomerRefe
     CustomerReferences findByTitelContaining(String titel);
 
     List<CustomerReferences> findByCustomerContaining(String name);
+
+    Page<CustomerReferences> findAll(Specification<CustomerReferences> spec, Pageable pageable);
+
+
 
     // List<CustomerReferences> findAllByTitel
 
